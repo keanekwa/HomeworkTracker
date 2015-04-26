@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Homework Tracker</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_homework_detail">Details: </string>
+    <string name="isDone">Done?</string>
+    <string name="duedate">Due date: </string>
+    <string name="slash">/</string>
+    <string name="add_new_homework">Add New Homework</string>
+    <string name="export">Export</string>
+    <string name="markasdone">Mark as done</string>
+    <string name="homeworkpositionclicked">HOMEWORK_POSITION_CLICKED</string>
+    <string name="reminder">Reminder: </string>
+    <string name="space">" "</string>
+    <string name="simpledateformat">dd/MM/yyyy</string>
+</resources>
