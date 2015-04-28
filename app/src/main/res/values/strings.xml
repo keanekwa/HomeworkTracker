@@ -14,4 +14,5 @@
     <string name="reminder">Reminder: </string>
     <string name="space">" "</string>
     <string name="simpledateformat">dd/MM/yyyy</string>
+    <string name="mediumtext">Medium Text</string>
 </resources>
