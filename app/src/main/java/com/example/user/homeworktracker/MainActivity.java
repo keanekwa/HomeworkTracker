@@ -3,7 +3,7 @@ package com.example.user.homeworktracker;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,12 +14,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 
-public class MainActivity extends ActionBarActivity {
-
-    //creating variables
-    public static int mClickedSubjectPosition;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,6 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View v, int position,
                                     long arg3) {
-                //String value = (String) adapter.getItemAtPosition(position);
                 //start activity to see more details about the homework
                 Intent mHomeworkDetailIntent = new Intent(MainActivity.this, HomeworkDetailActivity.class);
                 mHomeworkDetailIntent.putExtra(getString(R.string.homeworkpositionclicked), position);  //send position of row as extra to HomeworkDetailActivity
@@ -49,9 +46,11 @@ public class MainActivity extends ActionBarActivity {
         //when add homework button is clicked
         mAddHomeworkButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            //start activity for adding new subject
-            Intent mNewSubjectIntent = new Intent(MainActivity.this, NewHomeworkActivity.class);
-            MainActivity.this.startActivity(mNewSubjectIntent);
+                //start activity for adding new subject
+                Intent mNewSubjectIntent = new Intent(MainActivity.this, HomeworkDetailActivity.class);
+                mNewSubjectIntent.putExtra(getString(R.string.homeworkpositionclicked), -1);
+                HomeworkCollection.getHomeworkList(getApplicationContext()).add(new Homework("", "", false, new GregorianCalendar(), new GregorianCalendar()));
+                MainActivity.this.startActivity(mNewSubjectIntent);
             }
         });
     }

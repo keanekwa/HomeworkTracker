@@ -46,21 +46,21 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="date"
+        android:inputType="text"
         android:ems="10"
-        android:id="@+id/dueDateEditText"
+        android:id="@+id/subjectEditText"
         android:layout_below="@+id/exportButton"
-        android:layout_toRightOf="@+id/dueDateTextView"
-        android:layout_toEndOf="@+id/dueDateTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/mediumtext"
-        android:id="@+id/dueDateTextView"
-        android:layout_alignBottom="@+id/dueDateEditText"
+        android:text="@string/subject"
+        android:id="@+id/subjectTextView"
+        android:layout_alignBottom="@+id/subjectEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingBottom="13dp"/>
@@ -69,14 +69,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/mediumtext"
-        android:id="@+id/reminderTextView"
-        android:layout_alignParentStart="true"
+        android:text="@string/duedate"
+        android:id="@+id/dueDateTextView"
+        android:paddingBottom="13dp"
+        android:layout_above="@+id/reminderEditText"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/reminderEditText"
-        android:layout_toRightOf="@+id/dueDateTextView"
-        android:layout_marginTop="-35dp"
-        android:paddingBottom="13dp"/>
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/dueDateEditText"
+        android:layout_below="@+id/subjectEditText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:focusable="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/reminder"
+        android:id="@+id/reminderTextView"
+        android:paddingBottom="13dp"
+        android:layout_alignBottom="@+id/reminderEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
 
     <EditText
         android:layout_width="wrap_content"
@@ -85,8 +107,18 @@
         android:ems="10"
         android:id="@+id/reminderEditText"
         android:layout_below="@+id/dueDateEditText"
-        android:layout_toRightOf="@+id/reminderTextView"
-        android:layout_toEndOf="@+id/reminderTextView"
-        android:layout_marginTop="10dp"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:focusable="false"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/savenewhomework"
+        android:id="@+id/saveNewHomeworkButton"
+        android:layout_below="@+id/reminderTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"/>
 
 </RelativeLayout>

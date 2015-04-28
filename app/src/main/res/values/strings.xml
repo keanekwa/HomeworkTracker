@@ -13,6 +13,11 @@
     <string name="homeworkpositionclicked">HOMEWORK_POSITION_CLICKED</string>
     <string name="reminder">Reminder: </string>
     <string name="space">" "</string>
-    <string name="simpledateformat">dd/MM/yyyy</string>
-    <string name="mediumtext">Medium Text</string>
+    <string name="subject">Subject:</string>
+    <string name="savenewhomework">Save New Homework</string>
+    <string name="nothing"/>
+    <string name="nohomeworknamewarning">Please enter a homework name.</string>
+    <string name="noreminderwarning">Please enter the reminder date for this homework.</string>
+    <string name="noduedatewarning">Please enter the due date for this homework.</string>
+    <string name="nosubjectwarning">Please enter the subject for this homework.</string>
 </resources>

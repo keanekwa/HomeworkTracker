@@ -22,10 +22,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.user.homeworktracker.MainActivity" />
         </activity>
-        <activity
-            android:name=".NewHomeworkActivity"
-            android:label="@string/add_new_homework" >
-        </activity>
     </application>
 
 </manifest>
