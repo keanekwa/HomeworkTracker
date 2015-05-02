@@ -1,7 +1,5 @@
 package com.example.user.homeworktracker;
 
-import android.content.res.Resources;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +10,6 @@ import java.util.Locale;
 public class HomeworkCollection {
     private static HomeworkCollection sHomeworkCollection;
     private static ArrayList<Homework> mHomeworkList;
-    private static Resources mResources;
 
     //formatting for dates
     public static SimpleDateFormat simpledateformat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
