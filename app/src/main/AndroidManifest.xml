@@ -22,6 +22,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.user.homeworktracker.MainActivity" />
         </activity>
+        <receiver
+            android:name=".AlarmReceiver"
+            android:process=":remote" >
+        </receiver>
     </application>
 
 </manifest>
