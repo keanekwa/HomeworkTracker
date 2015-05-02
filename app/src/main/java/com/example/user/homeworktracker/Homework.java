@@ -3,6 +3,7 @@ package com.example.user.homeworktracker;
 import java.util.GregorianCalendar;
 
 public class Homework {
+    //setting up variables
     private String mName;
     private String mSubject;
     private boolean mDone;

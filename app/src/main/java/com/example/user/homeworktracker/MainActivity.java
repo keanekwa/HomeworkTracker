@@ -21,17 +21,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setup layout when app starts
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ListView mHomeworksList = (ListView) this.findViewById(android.R.id.list);
 
+        /* Tried to make json work but failed badly.  A for effort???
+        Gson gson = new Gson();
+        String json = getPreferences(0).getString("data", null);
+        if (json != null) {
+            Type type = new TypeToken<ArrayList<Homework>>() {}.getType();
+            ArrayList<Homework> mRetrievedHomeworkList = gson.fromJson(json, type);
+            HomeworkCollection.setHomeworkList(mRetrievedHomeworkList);
+        }*/
+
         //display subjects in listView (in adapted layout)
-        ArrayAdapter<Homework> adapter = new HomeworkAdapter(this, R.layout.list_item_homework, HomeworkCollection.getHomeworkList(getApplicationContext()));
+        ArrayAdapter<Homework> adapter = new HomeworkAdapter(this, R.layout.list_item_homework, HomeworkCollection.getHomeworkList());
         mHomeworksList.setAdapter(adapter);
+        //detect which item is clicked in listview
         mHomeworksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position,
-                                    long arg3) {
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
                 //start activity to see more details about the homework
                 Intent mHomeworkDetailIntent = new Intent(MainActivity.this, HomeworkDetailActivity.class);
                 mHomeworkDetailIntent.putExtra(getString(R.string.homeworkpositionclicked), position);  //send position of row as extra to HomeworkDetailActivity
@@ -48,8 +58,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //start activity for adding new subject
                 Intent mNewSubjectIntent = new Intent(MainActivity.this, HomeworkDetailActivity.class);
+                //put extra to let the HomeworkDetailActivity know that it is a new homework
                 mNewSubjectIntent.putExtra(getString(R.string.homeworkpositionclicked), -1);
-                HomeworkCollection.getHomeworkList(getApplicationContext()).add(new Homework("", "", false, new GregorianCalendar(), new GregorianCalendar()));
+                HomeworkCollection.getHomeworkList().add(new Homework("", "", false, new GregorianCalendar(), new GregorianCalendar()));
                 MainActivity.this.startActivity(mNewSubjectIntent);
             }
         });
@@ -83,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             TextView mDueDateTextView = (TextView) row.findViewById(R.id.dueDateItemTextView);
             mDueDateTextView.setText(getString(R.string.duedate) + getString(R.string.space) + HomeworkCollection.simpledateformat.format(mCurrentHomework.getDueDate().getTime()));
 
+            //set checkbox to whether the homework has been completed
             final CheckBox mIsDoneCheckBox = (CheckBox) row.findViewById(R.id.isDoneItemCheckBox);
             if (mCurrentHomework.isDone()) {
                 mIsDoneCheckBox.setChecked(true);
@@ -90,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 mIsDoneCheckBox.setChecked(false);
             }
+            //when checkbox is clicked, change the value of whether the homework is done accordingly
             mIsDoneCheckBox.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (mIsDoneCheckBox.isChecked()) {
@@ -100,9 +113,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-
+            //return the row after formatting it according to the adapter
             return row;
         }
     }
 
+    /* Tried to make json work but failed badly. A for effort???
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        Gson gson = new Gson();
+        String json = gson.toJson(HomeworkCollection.getHomeworkList(getApplicationContext()));
+        getPreferences(0).edit().putString("data", json).commit();
+    }*/
 }

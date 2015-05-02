@@ -20,4 +20,13 @@
     <string name="noreminderwarning">Please enter the reminder date for this homework.</string>
     <string name="noduedatewarning">Please enter the due date for this homework.</string>
     <string name="nosubjectwarning">Please enter the subject for this homework.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="homework">Homework:</string>
+    <string name="alarmtext">Hey! Please start doing your homework!</string>
+    <string name="alarmtitle">Homework Tracker Alarm</string>
+    <string name="exporthomeworkastext">Export Homework as Text</string>
+    <string name="homeworktrackerexport">Homework Tracker Export</string>
+    <string name="texthtml">text/html</string>
+    <string name="ALRT_OBJ_NAME">ALRT_OBJ_NAME</string>
 </resources>
